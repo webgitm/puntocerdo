@@ -1,400 +1,664 @@
-<!DOCTYPE html>
+<!DOCTYPE html><html class="dark" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<title>Punto Cerdo - Artisan Pork &amp; Smoked BBQ</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Epilogue:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-dim": "#161311",
+            "on-surface": "#e9e1dd",
+            "surface-container": "#221f1d",
+            "surface-container-high": "#2d2927",
+            "surface-container-low": "#1e1b19",
+            "surface-container-lowest": "#100e0c",
+            "surface-container-highest": "#383432",
+            "primary": "#ffb599",
+            "primary-container": "#ea580c",
+            "secondary-container": "#ea580c",
+            "secondary": "#ffb690",
+            "outline": "#a98a7e",
+            "outline-variant": "#5a4138",
+            "on-surface-variant": "#e2bfb2",
+            "surface": "#161311",
+            "background": "#161311",
+            "on-primary": "#5a1c00",
+            "whatsapp": "#25D366"
+          },
+          fontFamily: {
+            "headline": ["Bebas Neue", "sans-serif"],
+            "body": ["Epilogue", "sans-serif"],
+            "price": ["Space Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #161311;
+        color: #e9e1dd;
+        font-family: 'Epilogue', sans-serif;
+      }
+      body {
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 16px); }
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col antialiased selection:bg-orange-600 selection:text-white">
+<!-- CABECERA LIMPIA Y COMPACTA -->
+<header class="fixed top-0 inset-x-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/30 pt-safe transition-all">
+<div class="h-16 px-4 flex items-center justify-between gap-3 max-w-lg mx-auto w-full">
+<!-- Brand / Logo -->
+<div class="flex items-center gap-2.5">
+<img alt="Punto Cerdo Logo" class="h-9 w-auto object-contain rounded-md shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1WStbpIrPFx1aLg1TkXwdEhWKvMyggYL5csDUCNp_mkL77uLw0Lguun3pVWyYCUY9A0U21evc8zG0Xa2NlMXJDnDQPPBfhdyBRIx2oCSoPUSdI5L_VzJ0Y1a3ZU3vj6QGW_1TWGVcnvv2czlwQbVee_zS5Iy3MMrXp86Q6OZsmqlCPBHKIPJnl9RV9wO_qe3luivdQO1Wtf5-X-BRM2vK0Qe1klkWQsfYCnM5B3Lm5VTUB8LnVGnkmBUkU">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
 
-<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><title>Punto Cerdo - Artisan Pork & Smoked BBQ</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@100..900&family=Epilogue:wght@100..900&family=Space+Grotesk:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "outline-variant": "#5a4138", "secondary-fixed-dim": "#ffb690", "on-tertiary-fixed": "#2f1500", "surface-container-highest": "#383432", "on-surface": "#e9e1dd", "on-primary": "#5a1c00", "inverse-primary": "#a73a00", "primary-fixed-dim": "#ffb599", "tertiary": "#ffb77d", "secondary-fixed": "#ffdbca", "on-background": "#e9e1dd", "surface-variant": "#383432", "on-primary-container": "#4f1700", "primary": "#ffb599", "on-secondary-fixed": "#341100", "on-primary-fixed-variant": "#7f2b00", "secondary-container": "#ec6a06", "surface-container-lowest": "#100e0c", "inverse-on-surface": "#33302d", "background": "#161311", "surface": "#161311", "surface-tint": "#ffb599", "primary-fixed": "#ffdbce", "on-tertiary-container": "#432100", "tertiary-fixed-dim": "#ffb77d", "surface-container": "#221f1d", "inverse-surface": "#e9e1dd", "on-secondary": "#552100", "on-secondary-fixed-variant": "#783200", "error": "#ffb4ab", "error-container": "#93000a", "secondary": "#ffb690", "outline": "#a98a7e", "surface-dim": "#161311", "on-error": "#690005", "on-secondary-container": "#4a1c00", "on-surface-variant": "#e2bfb2", "tertiary-fixed": "#ffdcc3", "on-primary-fixed": "#370e00", "surface-bright": "#3c3836", "on-error-container": "#ffdad6", "surface-container-low": "#1e1b19", "on-tertiary": "#4d2600", "on-tertiary-fixed-variant": "#6e3900", "surface-container-high": "#2d2927", "tertiary-container": "#d97707", "primary-container": "#f66018" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-xs": "0.25rem", "margin-desktop": "3rem", "gutter-desktop": "2rem", "margin": "1rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "gutter": "1rem", "gutter-tablet": "1.5rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-tablet": "2rem" }, fontFamily: { "headline-lg-mobile": ["Bebas Neue"], "label-lg": ["Space Grotesk"], "body-md": ["Epilogue"], "headline-sm": ["Bebas Neue"], "headline-xl-mobile": ["Bebas Neue"], "headline-xl": ["Bebas Neue"], "label-md": ["Space Grotesk"], "headline-lg": ["Bebas Neue"], "body-lg": ["Epilogue"], "body-sm": ["Epilogue"], "headline-md": ["Bebas Neue"], "price-display": ["Space Grotesk"], "label-sm": ["Space Grotesk"] }, fontSize: { "headline-lg-mobile": ["30px", { "lineHeight": "34px", "letterSpacing": "0.02em", "fontWeight": "400" }], "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-sm": ["20px", { "lineHeight": "24px", "letterSpacing": "0.02em", "fontWeight": "400" }], "headline-xl-mobile": ["40px", { "lineHeight": "40px", "letterSpacing": "0.03em", "fontWeight": "400" }], "headline-xl": ["56px", { "lineHeight": "56px", "letterSpacing": "0.04em", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "44px", "letterSpacing": "0.03em", "fontWeight": "400" }], "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-md": ["26px", { "lineHeight": "30px", "letterSpacing": "0.02em", "fontWeight": "400" }], "price-display": ["22px", { "lineHeight": "24px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }] } } } };</script><style>@layer base{html,body{width:100%;min-height:100%;margin:0;padding:0;background-color:#161311;color:#e9e1dd;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_4px_24px_rgba(0,0,0,0.5)]"><div class="h-20 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><img alt="Brand logo. - Primary color: #d84315
-- Font: epilogue
-- Mode: light
-- Roundness: rounded-md
-" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1WStbpIrPFx1aLg1TkXwdEhWKvMyggYL5csDUCNp_mkL77uLw0Lguun3pVWyYCUY9A0U21evc8zG0Xa2NlMXJDnDQPPBfhdyBRIx2oCSoPUSdI5L_VzJ0Y1a3ZU3vj6QGW_1TWGVcnvv2czlwQbVee_zS5Iy3MMrXp86Q6OZsmqlCPBHKIPJnl9RV9wO_qe3luivdQO1Wtf5-X-BRM2vK0Qe1klkWQsfYCnM5B3Lm5VTUB8LnVGnkmBUkU"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary truncate">Punto Cerdo</span><span class="text-outline font-label-sm text-label-sm hidden sm:inline">•</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate uppercase hidden sm:inline">Artisan BBQ</span></div><div class="flex items-center gap-space-xs mt-0.5"><span class="inline-flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded-full text-secondary-container font-label-sm text-label-sm uppercase tracking-wider shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span>Abierto ahora · Envíos rápidos</span><span class="font-label-sm text-label-sm text-on-surface/60 truncate hidden xs:inline">| Smokehouse Menu</span></div></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Búsqueda" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors active:scale-95"><span class="material-symbols-outlined text-[20px]">search</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-20 pb-36 bg-surface min-h-screen"><div class="flex flex-col w-full">
-<!-- Sub-Header Status & Fulfillment Mode -->
-<section class="px-margin pt-space-xs pb-space-sm flex flex-col gap-space-sm">
-<div class="flex items-center justify-between gap-space-sm">
-<div class="flex items-center gap-space-xs min-w-0">
-<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse shrink-0"></span>
-<span class="font-label-sm text-label-sm text-secondary truncate uppercase tracking-wider">Ahumador Activo</span>
-<span class="text-outline-variant font-label-sm text-label-sm">•</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant truncate">35-45 min</span>
+</div>
+</div>
 </div>
 <!-- Segmented Delivery Selector -->
-<div aria-label="Modalidad de entrega" class="inline-flex p-0.5 rounded-lg bg-surface-container-high shrink-0" role="group">
-<button class="px-3 py-1 rounded-[3px] bg-primary-container text-on-primary font-label-sm text-label-sm uppercase tracking-wider transition-all" id="btn-delivery" onclick="setFulfillment('delivery')" type="button">
+<div class="inline-flex p-1 rounded-xl bg-surface-container-high border border-outline-variant/30 text-xs font-semibold" role="group">
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-white transition-all text-[11px] uppercase tracking-wider font-bold" id="mode-delivery" onclick="setOrderMode('delivery')">
           Domicilio
         </button>
-<button class="px-3 py-1 rounded-[3px] text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider transition-all hover:text-on-surface" id="btn-pickup" onclick="setFulfillment('pickup')" type="button">
-          Recoger
-        </button>
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-white shadow-sm transition-all text-[11px] uppercase tracking-wider font-bold" id="mode-pickup" onclick="setOrderMode('pickup')">
+          Local</button>
 </div>
 </div>
-</section>
-<!-- Hero Highlight Platter -->
-<section class="px-margin pb-space-md">
-<div class="relative overflow-hidden rounded-xl bg-surface-container-low shadow-xl">
-<div class="relative h-48 sm:h-56 w-full overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="Golden crisp Colombian chicharron pork belly cut in thick crackling squares on slate board beside roasted baby potatoes and lime wedges with warm pub lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2mqz5NgDHxoTaxa0VgW5qK5t9g5rlHI3Ha4Opzqbo7j2RKHe0E0Qe2F9AUSZ5rHP2OxT-xhONjwdlr8Oi0LuAy2oDZg63WaPH95JmXGdtevfcQAURWJj4yTLBpFUSlcAc-CmXb5WTq4TPqDLEe9QCvJUUH0kyQjh-_6tXudeZi6X-Kb-4jtYSY6bSEkeQqsI43DbBY5JF0idgaSjm6l0woITxRAqqEpM5THX3mrGinO-rQgLWjTusPQ"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
-<div class="absolute top-space-sm left-space-sm flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-lowest/90 backdrop-blur-md">
-<span class="material-symbols-outlined text-[15px] text-secondary-container">local_fire_department</span>
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Especialidad al Humo</span>
-</div>
-</div>
-<div class="p-space-md -mt-4 relative flex flex-col gap-space-xs">
-<div class="flex items-baseline justify-between gap-space-sm">
-<h2 class="font-headline-md text-headline-md uppercase tracking-wider text-on-surface">Chicharrón 100% Carnudo</h2>
-<span class="font-price-display text-price-display text-secondary-container leading-none">$28.000</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
-          Corte grueso curado 12h, cuero extra crocante con sal marina de Galerazamba y papas criollas al romero.
-        </p>
-<div class="pt-space-xs flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="px-2 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-outline">400g peso crudo</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-outline">Corte noble</span>
-</div>
-<button class="h-9 px-3 rounded-lg bg-primary-container hover:bg-secondary-container text-on-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1 active:scale-95 transition-all shadow-md" onclick="addItem('chicharron', 'Chicharrón Carnudo', 28000)" type="button">
-<span class="material-symbols-outlined text-[18px]">add</span>
-<span>Añadir</span>
-</button>
-</div>
-</div>
-</div>
-</section>
-<!-- Category Nav Chips (Sticky below shell) -->
-<section class="sticky top-20 z-30 bg-surface/95 backdrop-blur-md py-space-xs px-margin mb-space-sm shadow-sm">
-<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5" id="category-chips">
-<button class="cat-chip whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm uppercase tracking-wider transition-colors" onclick="filterCategory('todos', this)">
-        Todos
+<!-- SELECTOR HORIZONTAL DE CATEGORÍAS (PILLS DESLIZABLES) -->
+<div class="border-t border-outline-variant/20 bg-surface/90">
+<div class="max-w-lg mx-auto px-4 py-2.5 overflow-x-auto no-scrollbar flex items-center gap-2" id="category-pills">
+<button class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary-container text-white border border-primary-container shadow-sm transition-all flex items-center gap-1.5" data-category="all" onclick="filterCategory('all', this)">
+<span class="">🔥</span> Todos
       </button>
-<button class="cat-chip whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider transition-colors hover:text-on-surface" onclick="filterCategory('chicharrones', this)">
-        Chicharrones
+<button class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-surface-container border border-outline-variant/40 text-on-surface-variant hover:text-white hover:border-outline-variant/80 transition-all flex items-center gap-1.5" data-category="cortes" onclick="filterCategory('cortes', this)">
+<span class="">🥩</span> Chicharrones &amp; Cortes
       </button>
-<button class="cat-chip whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider transition-colors hover:text-on-surface" onclick="filterCategory('costillas', this)">
-        Costillas
+<button class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-surface-container border border-outline-variant/40 text-on-surface-variant hover:text-white hover:border-outline-variant/80 transition-all flex items-center gap-1.5" data-category="ahumados" onclick="filterCategory('ahumados', this)">
+<span class="">🍖</span> Costillas &amp; Ahumados
       </button>
-<button class="cat-chip whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider transition-colors hover:text-on-surface" onclick="filterCategory('picadas', this)">
-        Picadas
+<button class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-surface-container border border-outline-variant/40 text-on-surface-variant hover:text-white hover:border-outline-variant/80 transition-all flex items-center gap-1.5" data-category="picadas" onclick="filterCategory('picadas', this)">
+<span class="">👥</span> Picadas &amp; Combos
       </button>
-<button class="cat-chip whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider transition-colors hover:text-on-surface" onclick="filterCategory('bebidas', this)">
-        Bebidas & Lados
+<button class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-surface-container border border-outline-variant/40 text-on-surface-variant hover:text-white hover:border-outline-variant/80 transition-all flex items-center gap-1.5" data-category="acompanamientos" onclick="filterCategory('acompanamientos', this)">
+<span class="">🍟</span> Acompañamientos
+      </button>
+<button class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-surface-container border border-outline-variant/40 text-on-surface-variant hover:text-white hover:border-outline-variant/80 transition-all flex items-center gap-1.5" data-category="bebidas" onclick="filterCategory('bebidas', this)">
+<span class="">🥤</span> Bebidas
       </button>
 </div>
-</section>
-<!-- Food Menu List -->
-<section class="px-margin flex flex-col gap-space-sm">
-<!-- Item 1: Costillas BBQ -->
-<article class="menu-item p-space-sm rounded-xl bg-surface-container-low flex gap-space-sm items-center shadow-md" data-category="costillas">
-<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 relative bg-surface-container">
-<img class="w-full h-full object-cover" data-alt="St. Louis cut smoked pork spare ribs glazed with glistening dark barbecue sauce resting on wooden butcher plank sprinkled with scallions and smoke embers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIZ4dfwAwv2dfZj4r2NuZeLDgPUFzbACFlHTbuN9wvxvONwCuFyJq9E6qkx_QpVr-XBMOVdJ2G1Kiqz2flQlLt-uw5-ISAdlrGRyXEc9ylJU1W_FXUERJudK5HzgZudZ0XQGmcVKkxVU6EO3oirtpcjGPyXUn2h0_tfxrMilEXA7M2Bfhc05CwldnIaZ1lusnK_x7UJWRwiK4rPFh6KCIwu34A3E2_P2EYo_hob2JKC8pXVbuZ1gZpNA"/>
-<span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-secondary font-label-sm text-[10px] uppercase">
-          450g
-        </span>
 </div>
-<div class="flex flex-col justify-between flex-1 min-w-0 h-24 py-0.5">
+</header>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="flex-1 max-w-lg mx-auto w-full px-4 pt-36 pb-32 flex flex-col gap-6">
+<!-- Promo Banner Hero (Chicharrón Estrella) -->
+<div class="product-item relative overflow-hidden rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-xl group transition-all duration-300" data-category="cortes" id="item-chicharron">
+<div class="relative h-44 w-full overflow-hidden">
+<img alt="Chicharrón Crocante" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" src="https://lh3.googleusercontent.com/aida/AEtjO1U5-zwXMvi3PkDE7Ou6Mv-fQ8tZWadK6ZtfMC-zhR58razxEDjIqMk3tYRUdlvGGOygoNYq-tpSjPl9B2IpFkW4I3C1pti-CKUZeJV5m0-FAzh-g7DZQ03-ImD4P-p2gWDoY0kapSB2Iz8tkZLDqUpg00TZaMzxashqD9ZWE2T_4MybhyyjTurvgxwtd3ekRUP12N4mi5b7y3g70nxP8Gia6Ypw-57Xvq4MDwe42upuKionbFH4Sav1_uvL">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/50 to-transparent"></div>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-2.5 py-1 rounded-md border border-orange-500/30 flex items-center gap-1 text-[11px] font-bold text-orange-400 uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+          Especialidad de la Casa
+        </div>
+</div>
+<div class="p-4 -mt-3 relative flex items-center justify-between gap-2">
+<div class="flex flex-col">
+<h2 class="font-headline text-2xl tracking-wide text-white">Chicharrón 100% Carnudo</h2>
+<p class="text-xs text-on-surface-variant line-clamp-1">400g piel crujiente, papa criolla y limón</p>
+<span class="font-price text-xl font-bold text-orange-400 mt-0.5">$28.000</span>
+</div>
+<div class="shrink-0" id="btn-hero-wrap">
+            <div class="flex items-center gap-2 bg-surface-container-highest/90 p-1 rounded-xl border border-outline-variant/40">
+              <button onclick="changeQty('chicharron', -1)" class="w-8 h-8 rounded-lg bg-surface-container-high text-white hover:bg-surface-container-highest active:scale-95 transition-all flex items-center justify-center">
+                <span class="material-symbols-outlined text-[16px]">remove</span>
+              </button>
+              <span class="w-6 text-center font-price font-bold text-sm text-white">1</span>
+              <button onclick="changeQty('chicharron', 1)" class="w-8 h-8 rounded-lg bg-primary-container text-white hover:bg-orange-600 active:scale-95 transition-all flex items-center justify-center">
+                <span class="material-symbols-outlined text-[16px]">add</span>
+              </button>
+            </div>
+          </div>
+</div>
+</div>
+<!-- Menú Simple y Directo -->
+<section class="flex flex-col gap-3" id="menu-section">
+<div class="flex items-center justify-between">
+<h3 class="font-headline text-xl tracking-wider text-white" id="section-title">Cortes &amp; Ahumados</h3>
+<span class="text-xs text-on-surface-variant font-medium">Precios con IVA incluido</span>
+</div>
+<!-- Item: Costillas BBQ -->
+<div class="product-item menu-card p-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex items-center gap-3 shadow-md hover:border-outline-variant/60 transition-colors" data-category="ahumados" id="item-costillas">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-surface-container relative">
+<img alt="Costillas BBQ" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WjA8IZx5q0NWPI9SzTfSmvX1LI0-Jr_2jwSdKoN4_IxBJ0V2qdCWgkorfB-E6-KMwZgfs1i0TxVte0yJ1RaMMdgu58W400oymdC_SX5cFx29Whgp-7XKGaMxfSNTp10weniJ-Jhp2ZHQRS5TLvUns2lvf_957oKNjgAyNDkQFFEC8opiJCg_eUqjs4n-5I4o_Yuonft1_j6st4-yTreJdpxmN0IlnidX9hZ6Ge7iefxGogfxvE7Tk8RgIc">
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
 <div>
-<div class="flex items-start justify-between gap-1">
-<h3 class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface truncate">Costillas BBQ al Humo</h3>
-<span class="font-price-display text-price-display text-secondary-container leading-none shrink-0">$36.000</span>
+<div class="flex items-baseline justify-between gap-2">
+<h4 class="font-headline text-lg tracking-wide text-white truncate">Costillas BBQ al Humo</h4>
+<span class="font-price text-base font-bold text-orange-400 shrink-0">$36.000</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
-            Ahumadas 6 horas en leña de café, glaseado miel-chile.
-          </p>
+<p class="text-xs text-on-surface-variant truncate">450g costillar ahumado 6h en leña de café</p>
 </div>
-<div class="flex items-center justify-between mt-auto">
-<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Hueso tierno</span>
-<div class="flex items-center gap-1">
-<button class="w-7 h-7 rounded bg-surface-container-highest flex items-center justify-center text-on-surface active:scale-95" onclick="updateItem('costillas', -1)" type="button">
+<div class="mt-2 flex items-center justify-end">
+<div class="flex items-center gap-2" id="controls-costillas">
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-white hover:bg-surface-container-highest active:scale-95 transition-all flex items-center justify-center" onclick="changeQty('costillas', -1)">
 <span class="material-symbols-outlined text-[16px]">remove</span>
 </button>
-<span class="w-6 text-center font-label-md text-label-md text-on-surface" id="qty-costillas">1</span>
-<button class="w-7 h-7 rounded bg-primary-container text-on-primary flex items-center justify-center active:scale-95" onclick="updateItem('costillas', 1)" type="button">
+<span class="w-6 text-center font-price font-bold text-sm text-white" id="qty-costillas">0</span>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-white hover:bg-orange-600 active:scale-95 transition-all flex items-center justify-center" onclick="changeQty('costillas', 1)">
 <span class="material-symbols-outlined text-[16px]">add</span>
 </button>
 </div>
 </div>
 </div>
-</article>
-<!-- Item 2: Picada Punto Cerdo -->
-<article class="menu-item p-space-sm rounded-xl bg-surface-container-low flex gap-space-sm items-center shadow-md" data-category="picadas">
-<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 relative bg-surface-container">
-<img class="w-full h-full object-cover" data-alt="Rustic wooden platter filled with chicharron bits, smoked pork ribs, Colombian blood sausage morcilla, golden criolla potatoes and dipping sauces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV4AA-R0RGBMkDIw5rbOfQh2jcmEbV3QeRXZionnkMWtq5SJlTsakhEHBWzTxCr6jSKbyyTS4Byb0vpKB17TKxnwVMLKTlr_brkmom0e0o8EMCLUaM8mtEjYjso0JEvyDmMpIaeZNzhzce0FZ1scpidYG4aWe-eRkPMk-QGh_vTeDt8_vGML5Q2Ni2PSlYBN4v0ZwTmsJvu5Qb6q9TLn7CerLu54F_KuuUAvRJoa3gdiOn_52nlBuOWw"/>
-<span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-secondary font-label-sm text-[10px] uppercase">
-          2-3 pax
-        </span>
 </div>
-<div class="flex flex-col justify-between flex-1 min-w-0 h-24 py-0.5">
+<!-- Item: Picada Punto Cerdo -->
+<div class="product-item menu-card p-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex items-center gap-3 shadow-md hover:border-outline-variant/60 transition-colors" data-category="picadas" id="item-picada">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-surface-container relative">
+<img alt="Picada Punto Cerdo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV4AA-R0RGBMkDIw5rbOfQh2jcmEbV3QeRXZionnkMWtq5SJlTsakhEHBWzTxCr6jSKbyyTS4Byb0vpKB17TKxnwVMLKTlr_brkmom0e0o8EMCLUaM8mtEjYjso0JEvyDmMpIaeZNzhzce0FZ1scpidYG4aWe-eRkPMk-QGh_vTeDt8_vGML5Q2Ni2PSlYBN4v0ZwTmsJvu5Qb6q9TLn7CerLu54F_KuuUAvRJoa3gdiOn_52nlBuOWw">
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
 <div>
-<div class="flex items-start justify-between gap-1">
-<h3 class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface truncate">Picada Punto Cerdo</h3>
-<span class="font-price-display text-price-display text-secondary-container leading-none shrink-0">$52.000</span>
+<div class="flex items-baseline justify-between gap-2">
+<h4 class="font-headline text-lg tracking-wide text-white truncate">Picada Punto Cerdo</h4>
+<span class="font-price text-base font-bold text-orange-400 shrink-0">$52.000</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
-            Chicharrón, 1/4 rack costilla, morcilla artesanal y papas.
-          </p>
+<p class="text-xs text-on-surface-variant truncate">Chicharrón, costillas, morcilla y papas (2-3 pax)</p>
 </div>
-<div class="flex items-center justify-between mt-auto">
-<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Top ventas</span>
-<button class="h-7 px-2.5 rounded bg-surface-container-highest hover:bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1 active:scale-95" onclick="addItem('picada', 'Picada Punto Cerdo', 52000)" type="button">
-<span class="material-symbols-outlined text-[15px]">add</span>
-<span>Añadir</span>
+<div class="mt-2 flex items-center justify-end">
+<div class="flex items-center gap-2" id="controls-picada">
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-white hover:bg-surface-container-highest active:scale-95 transition-all flex items-center justify-center" onclick="changeQty('picada', -1)">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-6 text-center font-price font-bold text-sm text-white" id="qty-picada">0</span>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-white hover:bg-orange-600 active:scale-95 transition-all flex items-center justify-center" onclick="changeQty('picada', 1)">
+<span class="material-symbols-outlined text-[16px]">add</span>
 </button>
 </div>
 </div>
-</article>
-<!-- Item 3: Sandwich Pulled Pork -->
-<article class="menu-item p-space-sm rounded-xl bg-surface-container-low flex gap-space-sm items-center shadow-md" data-category="chicharrones">
-<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 relative bg-surface-container">
-<img class="w-full h-full object-cover" data-alt="Artisan brioche burger sandwich packed with slow-cooked shredded pulled pork dripping with barbecue sauce, topped with crisp coleslaw cabbage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH0_u4mFb17Rug7ENy41kkpy8humH4LFS2yOVDbOdU1kNWm8EUjKwBABCGgjcBqcSGD1dHfxmmzfds_cvuKE2mSe_p_vX7bm8CevzYQkLBbHHZEb6w65sGgDpCQH7pMPwiV51-q2Aip7Prde2FU-Eu5WVlVoGhXTokGrMHWQtauJ3l8R8szNkEruQJB2WAUxX8fyV7cFPLXS6URbTNO2eGYQyl6TkFlqCyOLkXhK0Yap2PYlMe2kx3Rw"/>
-<span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-secondary font-label-sm text-[10px] uppercase">
-          Brioche
-        </span>
 </div>
-<div class="flex flex-col justify-between flex-1 min-w-0 h-24 py-0.5">
+</div>
+<!-- Item: Sandwich Pulled Pork -->
+<div class="product-item menu-card p-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex items-center gap-3 shadow-md hover:border-outline-variant/60 transition-colors" data-category="ahumados" id="item-pulledpork">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-surface-container relative">
+<img alt="Sandwich Pulled Pork" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH0_u4mFb17Rug7ENy41kkpy8humH4LFS2yOVDbOdU1kNWm8EUjKwBABCGgjcBqcSGD1dHfxmmzfds_cvuKE2mSe_p_vX7bm8CevzYQkLBbHHZEb6w65sGgDpCQH7pMPwiV51-q2Aip7Prde2FU-Eu5WVlVoGhXTokGrMHWQtauJ3l8R8szNkEruQJB2WAUxX8fyV7cFPLXS6URbTNO2eGYQyl6TkFlqCyOLkXhK0Yap2PYlMe2kx3Rw">
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
 <div>
-<div class="flex items-start justify-between gap-1">
-<h3 class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface truncate">Sándwich Pulled Pork</h3>
-<span class="font-price-display text-price-display text-secondary-container leading-none shrink-0">$24.000</span>
+<div class="flex items-baseline justify-between gap-2">
+<h4 class="font-headline text-lg tracking-wide text-white truncate">Sándwich Pulled Pork</h4>
+<span class="font-price text-base font-bold text-orange-400 shrink-0">$24.000</span>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
-            10 horas de ahumado, pan brioche sellado y coleslaw fresco.
-          </p>
+<p class="text-xs text-on-surface-variant truncate">Bondiola desmechada 10h, brioche y coleslaw</p>
 </div>
-<div class="flex items-center justify-between mt-auto">
-<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Desmechado</span>
-<button class="h-7 px-2.5 rounded bg-surface-container-highest hover:bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1 active:scale-95" onclick="addItem('pulledpork', 'Sándwich Pulled Pork', 24000)" type="button">
-<span class="material-symbols-outlined text-[15px]">add</span>
-<span>Añadir</span>
+<div class="mt-2 flex items-center justify-end">
+<div class="flex items-center gap-2" id="controls-pulledpork">
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-white hover:bg-surface-container-highest active:scale-95 transition-all flex items-center justify-center" onclick="changeQty('pulledpork', -1)">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-6 text-center font-price font-bold text-sm text-white" id="qty-pulledpork">0</span>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-white hover:bg-orange-600 active:scale-95 transition-all flex items-center justify-center" onclick="changeQty('pulledpork', 1)">
+<span class="material-symbols-outlined text-[16px]">add</span>
 </button>
 </div>
 </div>
-</article>
-<!-- Grid pair for Side & Beverage -->
-<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
-<!-- Papas Criollas -->
-<article class="menu-item p-space-sm rounded-xl bg-surface-container-low flex flex-col justify-between shadow-md" data-category="bebidas">
-<div class="h-20 w-full rounded-lg overflow-hidden relative bg-surface-container mb-2">
-<img class="w-full h-full object-cover" data-alt="Golden fried small Colombian yellow potatoes seasoned with fresh rosemary and sea salt in cast iron skillet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5jXqOBUrXwlcaTYwduNV17UQ7UI0s0zbbzP-vlcqxwufgcMnJ9VXuC3Um0OehMW3Rz8Frpxr0nXJ6dq26kBkJ5eulE7c7nGAMvHMqvConsZEhnjtESp8H_FBiVXzED8TaF2G8A8pVgAXcepK4BtYmsS-Dw6LteqBjeqUKG2yDzl7tOO0GeHGdw4Yi3UTBM3OUglp3QncNFF8Z0A4WCvsgioAglJexS6vmrfbMy9y62EoaCRr0vVWVoQ"/>
 </div>
-<div class="flex flex-col gap-0.5">
-<h4 class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface truncate">Papas Criollas</h4>
-<span class="font-price-display text-price-display text-secondary-container leading-none">$9.000</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Con romero y sal marina</span>
 </div>
-<button class="mt-2 h-8 w-full rounded bg-surface-container-highest hover:bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center justify-center gap-1 active:scale-95" onclick="addItem('papas', 'Papas Criollas al Romero', 9000)" type="button">
-<span class="material-symbols-outlined text-[15px]">add</span>
-<span>Añadir</span>
+<!-- Item: Papas Criollas -->
+<div class="product-item menu-card p-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex items-center gap-3 shadow-md hover:border-outline-variant/60 transition-colors" data-category="acompanamientos" id="item-papas">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-surface-container relative">
+<img alt="Papas Criollas" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5jXqOBUrXwlcaTYwduNV17UQ7UI0s0zbbzP-vlcqxwufgcMnJ9VXuC3Um0OehMW3Rz8Frpxr0nXJ6dq26kBkJ5eulE7c7nGAMvHMqvConsZEhnjtESp8H_FBiVXzED8TaF2G8A8pVgAXcepK4BtYmsS-Dw6LteqBjeqUKG2yDzl7tOO0GeHGdw4Yi3UTBM3OUglp3QncNFF8Z0A4WCvsgioAglJexS6vmrfbMy9y62EoaCRr0vVWVoQ">
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+<div>
+<div class="flex items-baseline justify-between gap-2">
+<h4 class="font-headline text-lg tracking-wide text-white truncate">Papas Criollas al Romero</h4>
+<span class="font-price text-base font-bold text-orange-400 shrink-0">$9.000</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">Doradas con sal marina y romero fresco</p>
+</div>
+<div class="mt-2 flex items-center justify-end">
+<div class="flex items-center gap-2" id="controls-papas">
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-white hover:bg-surface-container-highest active:scale-95 transition-all flex items-center justify-center" onclick="changeQty('papas', -1)">
+<span class="material-symbols-outlined text-[16px]">remove</span>
 </button>
-</article>
-<!-- Limonada de Coco -->
-<article class="menu-item p-space-sm rounded-xl bg-surface-container-low flex flex-col justify-between shadow-md" data-category="bebidas">
-<div class="h-20 w-full rounded-lg overflow-hidden relative bg-surface-container mb-2">
-<img class="w-full h-full object-cover" data-alt="Frosted cold glass of blended coconut lime frappe with lime slice garnish on dark wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANBI_5_KrulbIUb4JIxUP3n0TLg3a2HSMg6z2IA0eucxvn0TaiVEb0xFqYYQJF8lFzddKpSkDom-DE7HKUU4RUsKKyqNrgmrwhSclSzuXZTFvpmOQ8e3j_vEStaTv63RBpIkkQix3MCUw0TqlmkY0TqktSB5t80TwHKw5K18GPJIeZ9Irc0H19W9wHnYTRPHucIuyKJr85NE-BKIejKbzgIyHdPjoxbtxn4Bsd_KUPndvvXWT7bDimNQ"/>
-</div>
-<div class="flex flex-col gap-0.5">
-<h4 class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface truncate">Limonada Coco</h4>
-<span class="font-price-display text-price-display text-secondary-container leading-none">$10.000</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Frappé 16oz cremosa</span>
-</div>
-<button class="mt-2 h-8 w-full rounded bg-surface-container-highest hover:bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center justify-center gap-1 active:scale-95" onclick="addItem('limonada', 'Limonada de Coco', 10000)" type="button">
-<span class="material-symbols-outlined text-[15px]">add</span>
-<span>Añadir</span>
+<span class="w-6 text-center font-price font-bold text-sm text-white" id="qty-papas">0</span>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-white hover:bg-orange-600 active:scale-95 transition-all flex items-center justify-center" onclick="changeQty('papas', 1)">
+<span class="material-symbols-outlined text-[16px]">add</span>
 </button>
-</article>
+</div>
+</div>
+</div>
+</div>
+<!-- Item: Limonada de Coco -->
+<div class="product-item menu-card p-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex items-center gap-3 shadow-md hover:border-outline-variant/60 transition-colors" data-category="bebidas" id="item-limonada">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-surface-container relative">
+<img alt="Limonada de Coco" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANBI_5_KrulbIUb4JIxUP3n0TLg3a2HSMg6z2IA0eucxvn0TaiVEb0xFqYYQJF8lFzddKpSkDom-DE7HKUU4RUsKKyqNrgmrwhSclSzuXZTFvpmOQ8e3j_vEStaTv63RBpIkkQix3MCUw0TqlmkY0TqktSB5t80TwHKw5K18GPJIeZ9Irc0H19W9wHnYTRPHucIuyKJr85NE-BKIejKbzgIyHdPjoxbtxn4Bsd_KUPndvvXWT7bDimNQ">
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+<div>
+<div class="flex items-baseline justify-between gap-2">
+<h4 class="font-headline text-lg tracking-wide text-white truncate">Limonada de Coco Frappé</h4>
+<span class="font-price text-base font-bold text-orange-400 shrink-0">$10.000</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">16oz cremosa natural recién batida</p>
+</div>
+<div class="mt-2 flex items-center justify-end">
+<div class="flex items-center gap-2" id="controls-limonada">
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-white hover:bg-surface-container-highest active:scale-95 transition-all flex items-center justify-center" onclick="changeQty('limonada', -1)">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-6 text-center font-price font-bold text-sm text-white" id="qty-limonada">0</span>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-white hover:bg-orange-600 active:scale-95 transition-all flex items-center justify-center" onclick="changeQty('limonada', 1)">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Mensaje cuando no hay platos en una categoría -->
+<div class="hidden p-6 rounded-2xl bg-surface-container border border-outline-variant/30 text-center" id="empty-category-msg">
+<p class="text-sm text-on-surface-variant">No hay productos disponibles en esta categoría actualmente.</p>
 </div>
 </section>
-<!-- Pedido Express / Direct Checkout Section -->
-<section class="mt-space-lg px-margin pb-space-lg">
-<div class="rounded-xl bg-surface-container-high p-space-md shadow-2xl flex flex-col gap-space-md">
-<!-- Section Header -->
-<div class="flex items-center justify-between pb-space-xs">
+<!-- FORMULARIO DE CHECKOUT DIRECTO (Limpio y sin pasos confusos) -->
+<section class="scroll-mt-36 p-5 rounded-2xl bg-surface-container border border-outline-variant/40 shadow-xl flex flex-col gap-4" id="checkout-section">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/30">
 <div class="flex items-center gap-2">
-<span class="w-8 h-8 rounded-lg bg-surface-container-highest text-secondary-container flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
-</span>
+<span class="material-symbols-outlined text-orange-500">task_alt</span>
+<h3 class="font-headline text-xl tracking-wider text-white">Datos de Entrega &amp; Pago</h3>
+</div>
+<span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-surface-container-high text-orange-300" id="badge-items-count">1 producto</span>
+</div>
+<!-- Resumen en vivo de productos elegidos -->
+<div class="text-center py-4 text-sm text-on-surface-variant/80 border border-dashed border-outline-variant/40 rounded-xl bg-surface-container-lowest/50 hidden" id="cart-empty-msg">
+        Tu pedido está vacío. Toca <strong>[+]</strong> en los platos para agregarlos.
+      </div>
+<div class="flex flex-col gap-2 divide-y divide-outline-variant/20" id="cart-items-summary">
+              <div class="pt-2 first:pt-0 flex items-center justify-between text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded bg-orange-500/20 text-orange-400 font-bold flex items-center justify-center text-[11px]">1x</span>
+                  <span class="text-white font-medium">Chicharrón 100% Carnudo (400g)</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="font-price font-bold text-orange-300">$28.000</span>
+                  <button onclick="changeQty('chicharron', -1)" class="text-outline hover:text-red-400 transition-colors p-1" title="Eliminar">
+                    <span class="material-symbols-outlined text-[16px]">close</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+<!-- Campos de texto directos -->
+<div class="flex flex-col gap-3 pt-1">
 <div>
-<h3 class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface leading-none">Tu Pedido Express</h3>
-<span class="font-label-sm text-label-sm text-on-surface-variant">2 cortes ahumados listos</span>
-</div>
-</div>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-highest font-label-sm text-label-sm text-secondary uppercase tracking-wider">
-          Paso 2 de 2
-        </span>
-</div>
-<!-- Current Selected Items -->
-<div class="rounded-lg bg-surface-container p-space-sm flex flex-col gap-space-sm">
-<div class="flex items-center justify-between text-on-surface">
-<div class="flex items-center gap-2">
-<span class="w-5 h-5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm flex items-center justify-center">1</span>
-<span class="font-body-md text-body-md">Chicharrón Crocante (400g)</span>
-</div>
-<span class="font-label-md text-label-md text-on-surface-variant">$28.000</span>
-</div>
-<div class="flex items-center justify-between text-on-surface">
-<div class="flex items-center gap-2">
-<span class="w-5 h-5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm flex items-center justify-center">1</span>
-<span class="font-body-md text-body-md">Costillas BBQ al Humo (450g)</span>
-</div>
-<span class="font-label-md text-label-md text-on-surface-variant">$36.000</span>
-</div>
-<div class="pt-space-xs flex items-center justify-between text-on-surface">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Subtotal Alimentos</span>
-<span class="font-price-display text-price-display text-secondary-container" id="total-display">$64.000</span>
-</div>
-</div>
-<!-- Essential Customer Inputs -->
-<div class="flex flex-col gap-space-sm">
-<div class="flex flex-col gap-1">
-<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="input-name">
-            Nombre de quien recibe
+<label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1" for="cust-name">
+            Tu Nombre Completo
           </label>
 <div class="relative">
-<input class="w-full h-11 px-3 pl-9 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline-variant focus:outline-none" id="input-name" placeholder="Ej: Carlos Ramírez" type="text" value="Carlos Ramírez"/>
-<span class="material-symbols-outlined absolute left-2.5 top-3 text-[18px] text-outline">badge</span>
+<input class="w-full h-11 pl-10 pr-3 rounded-xl bg-surface-container-lowest border border-outline-variant/40 text-white placeholder:text-outline/60 text-sm focus:outline-none focus:border-orange-500 transition-colors" id="cust-name" placeholder="Ej: Carlos Ramírez" type="text">
+<span class="material-symbols-outlined absolute left-3 top-3 text-[18px] text-outline">person</span>
 </div>
 </div>
-<div class="flex flex-col gap-1">
-<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant flex justify-between" for="input-address">
-<span id="label-address">Dirección de entrega y Barrio</span>
-<span class="text-secondary font-label-sm text-label-sm">Bogotá Norte / Chapinero</span>
-</label>
+<div id="delivery-address-group" class="hidden">
+<label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1" for="cust-address">
+            Dirección de Domicilio y Barrio
+          </label>
 <div class="relative">
-<input class="w-full h-11 px-3 pl-9 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline-variant focus:outline-none" id="input-address" placeholder="Ej: Cra 13 #85-24 Apto 402, El Virrey" type="text" value="Cra 14 #85-30 Apto 501, Chicó"/>
-<span class="material-symbols-outlined absolute left-2.5 top-3 text-[18px] text-outline">pin_drop</span>
+<input class="w-full h-11 pl-10 pr-3 rounded-xl bg-surface-container-lowest border border-outline-variant/40 text-white placeholder:text-outline/60 text-sm focus:outline-none focus:border-orange-500 transition-colors" id="cust-address" placeholder="Ej: Calle 85 #14-30 Apto 402, Chapinero" type="text">
+<span class="material-symbols-outlined absolute left-3 top-3 text-[18px] text-outline">location_on</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-high/60 border border-outline-variant/30 flex items-center gap-2.5 text-xs text-on-surface-variant" id="pickup-location-group">
+<span class="material-symbols-outlined text-orange-400">store</span>
+<div>
+<p class="font-bold text-white">Sede de Recogida:</p>
+<p class="">Calle 85 #14-25, Bogotá (Listo en 25 min)</p>
 </div>
 </div>
 </div>
-<!-- Quick Payment Method Selector -->
-<div class="flex flex-col gap-1.5">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Método de pago rápido</span>
+<!-- Selección rápida de pago -->
+<div class="flex flex-col gap-1.5 pt-1">
+<label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">
+          Forma de Pago
+        </label>
 <div class="grid grid-cols-3 gap-2">
-<button class="pay-btn p-2 rounded-lg bg-surface-container text-on-surface flex flex-col items-center justify-center gap-1 active:scale-95 transition-all" onclick="setPayment('nequi', this)" style="background-color: #221f1d;" type="button">
-<span class="material-symbols-outlined text-[20px] text-secondary-container">account_balance_wallet</span>
-<span class="font-label-sm text-label-sm uppercase">Nequi</span>
+<button class="pay-option active p-2.5 rounded-xl border border-orange-500 bg-orange-500/15 text-white flex flex-col items-center justify-center gap-1 transition-all" onclick="setPayment('Nequi', this)" type="button">
+<span class="material-symbols-outlined text-[20px] text-orange-400">account_balance_wallet</span>
+<span class="text-xs font-bold uppercase tracking-wider">Nequi</span>
 </button>
-<button class="pay-btn p-2 rounded-lg bg-surface-container text-on-surface-variant flex flex-col items-center justify-center gap-1 active:scale-95 transition-all" onclick="setPayment('daviplata', this)" type="button">
+<button class="pay-option p-2.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest text-on-surface-variant hover:text-white flex flex-col items-center justify-center gap-1 transition-all" onclick="setPayment('Daviplata', this)" type="button">
 <span class="material-symbols-outlined text-[20px]">phone_iphone</span>
-<span class="font-label-sm text-label-sm uppercase">Daviplata</span>
+<span class="text-xs font-bold uppercase tracking-wider">Daviplata</span>
 </button>
-<button class="pay-btn p-2 rounded-lg bg-surface-container text-on-surface-variant flex flex-col items-center justify-center gap-1 active:scale-95 transition-all" onclick="setPayment('cash', this)" type="button">
+<button class="pay-option p-2.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest text-on-surface-variant hover:text-white flex flex-col items-center justify-center gap-1 transition-all" onclick="setPayment('Efectivo', this)" type="button">
 <span class="material-symbols-outlined text-[20px]">payments</span>
-<span class="font-label-sm text-label-sm uppercase">Efectivo</span>
+<span class="text-xs font-bold uppercase tracking-wider">Efectivo</span>
 </button>
 </div>
 </div>
-<!-- WhatsApp Order Trigger -->
-<div class="pt-space-xs flex flex-col gap-2">
-<button class="w-full h-13 py-3.5 px-4 rounded-xl flex items-center justify-between text-white font-label-lg text-label-lg uppercase tracking-wider transition-transform active:scale-[0.98] shadow-lg" onclick="submitWhatsAppOrder()" style="background-color: #25D366;" type="button">
-<div class="flex items-center gap-2">
-<!-- Inline WhatsApp Emblem -->
-<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<!-- Botón de WhatsApp funcional -->
+<div class="pt-2 flex flex-col gap-2">
+<button class="w-full h-14 rounded-2xl bg-whatsapp hover:bg-emerald-500 active:scale-[0.98] text-white font-bold px-4 flex items-center justify-between shadow-xl shadow-emerald-950/40 transition-all cursor-pointer" id="btn-submit-order" onclick="sendWhatsAppOrder()">
+<div class="flex items-center gap-2.5">
+<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
 <path d="M12.031 2C6.511 2 2.016 6.495 2.016 12.015c0 1.95.56 3.766 1.528 5.305L2 22l4.835-1.503c1.474.887 3.208 1.393 5.066 1.393h.005c5.518 0 10.014-4.495 10.014-10.015C21.92 6.495 17.549 2 12.031 2zm5.836 14.288c-.244.686-1.42 1.31-1.956 1.373-.509.06-1.173.088-3.791-.99-2.23-1.02-3.666-3.28-3.777-3.428-.111-.148-.908-1.208-.908-2.304 0-1.096.574-1.636.778-1.859.204-.222.444-.278.593-.278.148 0 .296.002.426.008.138.006.324-.052.507.389.185.445.63 1.538.685 1.65.056.111.093.24.019.388-.074.149-.111.241-.222.371-.111.13-.233.29-.333.39-.111.111-.227.232-.097.454.13.222.576.95 1.238 1.54 1.138 1.015 1.506 1.144 1.728 1.255.222.111.352.093.482-.056.13-.148.556-.649.704-.871.149-.222.297-.185.482-.111.185.074 1.186.559 1.39.66.204.102.339.153.389.241.05.088.05.519-.194 1.205z"></path>
 </svg>
-<span class="font-bold text-[15px]">Pedir por WhatsApp</span>
+<span class="text-sm sm:text-base tracking-wide uppercase">Pedir por WhatsApp</span>
 </div>
-<span class="font-price-display text-price-display text-white" id="btn-total-display">$64.000</span>
+<span class="font-price font-bold text-lg leading-none" id="whatsapp-btn-price">$28.000</span>
 </button>
-<p class="text-center font-body-sm text-body-sm text-on-surface-variant flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[15px] text-primary">verified</span>
-          Se enviará el detalle listo para confirmar con el asador
+<p class="text-center text-[11px] text-on-surface-variant flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+          Atención al instante por el maestro parrillero
         </p>
 </div>
-</div>
 </section>
+</main>
+<!-- ÚNICA BARRA FLOTANTE INFERIOR LIMPIA (Sticky checkout trigger) -->
+<div class="fixed bottom-0 inset-x-0 z-40 p-4 pb-safe bg-gradient-to-t from-surface via-surface/95 to-transparent pointer-events-none transition-all duration-300" id="bottom-bar">
+<div class="max-w-lg mx-auto pointer-events-auto">
+<button class="w-full h-14 rounded-2xl bg-surface-container-high/95 backdrop-blur-xl border border-orange-500/40 p-3 px-4 shadow-[0_8px_30px_rgba(0,0,0,0.8)] flex items-center justify-between active:scale-[0.99] transition-transform group" onclick="scrollToCheckout()">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
 </div>
+<div class="flex flex-col text-left">
+<span class="text-xs font-semibold uppercase tracking-wider text-orange-300" id="bar-items-label">Ver Pedido (1)</span>
+<span class="font-price text-lg font-bold text-white leading-none" id="bar-total-price">$28.000</span>
+</div>
+</div>
+<div class="h-9 px-3.5 rounded-xl bg-primary-container group-hover:bg-orange-600 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1 transition-colors shadow-md">
+<span class="">Confirmar</span>
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</div>
+</button>
+</div>
+</div>
+<!-- JAVASCRIPT ROBUSTO Y REACTIVO -->
 <script>
-  let orderMode = 'delivery';
-  let paymentMethod = 'nequi';
-  let totalOrder = 64000;
+    // Catálogo de Productos
+    const PRODUCTS = {
+      chicharron: { id: 'chicharron', name: 'Chicharrón 100% Carnudo (400g)', price: 28000, category: 'cortes' },
+      costillas:   { id: 'costillas',   name: 'Costillas BBQ al Humo (450g)',   price: 36000, category: 'ahumados' },
+      picada:      { id: 'picada',      name: 'Picada Punto Cerdo (2-3 pax)',   price: 52000, category: 'picadas' },
+      pulledpork:  { id: 'pulledpork',  name: 'Sándwich Pulled Pork',           price: 24000, category: 'ahumados' },
+      papas:       { id: 'papas',       name: 'Papas Criollas al Romero',       price: 9000,  category: 'acompanamientos' },
+      limonada:    { id: 'limonada',    name: 'Limonada de Coco Frappé',        price: 10000, category: 'bebidas' }
+    };
 
-  function setFulfillment(mode) {
-    orderMode = mode;
-    const btnDel = document.getElementById('btn-delivery');
-    const btnPick = document.getElementById('btn-pickup');
-    const labelAddr = document.getElementById('label-address');
-    const inputAddr = document.getElementById('input-address');
+    // Títulos por categoría para el encabezado de sección
+    const CATEGORY_TITLES = {
+      all: 'Cortes & Ahumados',
+      cortes: 'Chicharrones & Cortes',
+      ahumados: 'Costillas & Ahumados',
+      picadas: 'Picadas & Combos',
+      acompanamientos: 'Acompañamientos',
+      bebidas: 'Bebidas'
+    };
 
-    if (mode === 'delivery') {
-      btnDel.className = "px-3 py-1 rounded-[3px] bg-primary-container text-on-primary font-label-sm text-label-sm uppercase tracking-wider transition-all";
-      btnPick.className = "px-3 py-1 rounded-[3px] text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider transition-all hover:text-on-surface";
-      labelAddr.textContent = "Dirección de entrega y Barrio";
-      inputAddr.placeholder = "Ej: Cra 13 #85-24 Apto 402, El Virrey";
-    } else {
-      btnPick.className = "px-3 py-1 rounded-[3px] bg-primary-container text-on-primary font-label-sm text-label-sm uppercase tracking-wider transition-all";
-      btnDel.className = "px-3 py-1 rounded-[3px] text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider transition-all hover:text-on-surface";
-      labelAddr.textContent = "Sede de recogida";
-      inputAddr.value = "Sede Calle 85 #14-25 (Punto Cerdo Norte)";
-    }
-  }
+    // Estado de la app
+    const cart = {
+      chicharron: 1, // 1 seleccionado por defecto para dar feedback inmediato
+      costillas: 0,
+      picada: 0,
+      pulledpork: 0,
+      papas: 0,
+      limonada: 0
+    };
 
-  function setPayment(method, element) {
-    paymentMethod = method;
-    document.querySelectorAll('.pay-btn').forEach(btn => {
-      btn.classList.remove('text-on-surface');
-      btn.classList.add('text-on-surface-variant');
-      btn.style.backgroundColor = '';
-    });
-    element.classList.remove('text-on-surface-variant');
-    element.classList.add('text-on-surface');
-    element.style.backgroundColor = '#221f1d';
-  }
+    let currentCategory = 'all';
+    let orderMode = 'delivery'; // 'delivery' | 'pickup'
+    let paymentMethod = 'Nequi';
 
-  function filterCategory(cat, btn) {
-    document.querySelectorAll('.cat-chip').forEach(b => {
-      b.className = "cat-chip whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider transition-colors hover:text-on-surface";
-    });
-    btn.className = "cat-chip whitespace-nowrap px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm uppercase tracking-wider transition-colors";
+    function filterCategory(cat, btnElement) {
+      currentCategory = cat;
 
-    const items = document.querySelectorAll('.menu-item');
-    items.forEach(item => {
-      if (cat === 'todos' || item.getAttribute('data-category') === cat) {
-        item.style.display = '';
-      } else {
-        item.style.display = 'none';
+      // Actualizar estilos de los botones/pills
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        btn.className = "cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-surface-container border border-outline-variant/40 text-on-surface-variant hover:text-white hover:border-outline-variant/80 transition-all flex items-center gap-1.5";
+      });
+      btnElement.className = "cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary-container text-white border border-primary-container shadow-sm transition-all flex items-center gap-1.5";
+
+      // Centrar pill en scroll suavemente
+      btnElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+      // Actualizar título de sección
+      const titleEl = document.getElementById('section-title');
+      if (titleEl && CATEGORY_TITLES[cat]) {
+        titleEl.textContent = CATEGORY_TITLES[cat];
       }
+
+      // Filtrar platos
+      const items = document.querySelectorAll('.product-item');
+      let visibleCount = 0;
+
+      items.forEach(el => {
+        const itemCat = el.getAttribute('data-category');
+        if (cat === 'all' || itemCat === cat) {
+          el.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+
+      const emptyMsg = document.getElementById('empty-category-msg');
+      if (emptyMsg) {
+        if (visibleCount === 0) {
+          emptyMsg.classList.remove('hidden');
+        } else {
+          emptyMsg.classList.add('hidden');
+        }
+      }
+    }
+
+    function setOrderMode(mode) {
+      orderMode = mode;
+      const btnDel = document.getElementById('mode-delivery');
+      const btnPick = document.getElementById('mode-pickup');
+      const addrGroup = document.getElementById('delivery-address-group');
+      const pickGroup = document.getElementById('pickup-location-group');
+
+      if (mode === 'delivery') {
+        btnDel.className = "px-3 py-1.5 rounded-lg bg-primary-container text-white shadow-sm transition-all text-[11px] uppercase tracking-wider font-bold";
+        btnPick.className = "px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-white transition-all text-[11px] uppercase tracking-wider font-bold";
+        addrGroup.classList.remove('hidden');
+        pickGroup.classList.add('hidden');
+      } else {
+        btnPick.className = "px-3 py-1.5 rounded-lg bg-primary-container text-white shadow-sm transition-all text-[11px] uppercase tracking-wider font-bold";
+        btnDel.className = "px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-white transition-all text-[11px] uppercase tracking-wider font-bold";
+        addrGroup.classList.add('hidden');
+        pickGroup.classList.remove('hidden');
+      }
+    }
+
+    function setPayment(method, btnElement) {
+      paymentMethod = method;
+      document.querySelectorAll('.pay-option').forEach(el => {
+        el.className = "pay-option p-2.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest text-on-surface-variant hover:text-white flex flex-col items-center justify-center gap-1 transition-all";
+        const icon = el.querySelector('.material-symbols-outlined');
+        if (icon) icon.classList.remove('text-orange-400');
+      });
+
+      btnElement.className = "pay-option active p-2.5 rounded-xl border border-orange-500 bg-orange-500/15 text-white flex flex-col items-center justify-center gap-1 transition-all";
+      const activeIcon = btnElement.querySelector('.material-symbols-outlined');
+      if (activeIcon) activeIcon.classList.add('text-orange-400');
+    }
+
+    function changeQty(productId, delta) {
+      if (cart[productId] !== undefined) {
+        cart[productId] = Math.max(0, cart[productId] + delta);
+        renderCartUI();
+      }
+    }
+
+    function scrollToCheckout() {
+      const checkout = document.getElementById('checkout-section');
+      checkout.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const nameInput = document.getElementById('cust-name');
+      setTimeout(() => nameInput.focus(), 400);
+    }
+
+    function formatPrice(val) {
+      return '$' + val.toLocaleString('es-CO');
+    }
+
+    function renderCartUI() {
+      let totalQty = 0;
+      let totalPrice = 0;
+
+      // Actualizar contadores de las listas
+      for (const [id, qty] of Object.entries(cart)) {
+        const qtyEl = document.getElementById(`qty-${id}`);
+        if (qtyEl) qtyEl.textContent = qty;
+        totalQty += qty;
+        totalPrice += qty * (PRODUCTS[id]?.price || 0);
+      }
+
+      // Actualizar botón del hero
+      const heroWrap = document.getElementById('btn-hero-wrap');
+      if (heroWrap) {
+        if (cart.chicharron > 0) {
+          heroWrap.innerHTML = `
+            <div class="flex items-center gap-2 bg-surface-container-highest/90 p-1 rounded-xl border border-outline-variant/40">
+              <button onclick="changeQty('chicharron', -1)" class="w-8 h-8 rounded-lg bg-surface-container-high text-white hover:bg-surface-container-highest active:scale-95 transition-all flex items-center justify-center">
+                <span class="material-symbols-outlined text-[16px]">remove</span>
+              </button>
+              <span class="w-6 text-center font-price font-bold text-sm text-white">${cart.chicharron}</span>
+              <button onclick="changeQty('chicharron', 1)" class="w-8 h-8 rounded-lg bg-primary-container text-white hover:bg-orange-600 active:scale-95 transition-all flex items-center justify-center">
+                <span class="material-symbols-outlined text-[16px]">add</span>
+              </button>
+            </div>
+          `;
+        } else {
+          heroWrap.innerHTML = `
+            <button onclick="changeQty('chicharron', 1)" class="h-10 px-4 rounded-xl bg-primary-container text-white text-xs uppercase font-bold tracking-wider hover:bg-orange-600 active:scale-95 transition-all flex items-center gap-1.5 shadow-lg shadow-orange-950/40">
+              <span class="material-symbols-outlined text-[18px]">add</span>
+              <span>Añadir</span>
+            </button>
+          `;
+        }
+      }
+
+      // Actualizar Barra flotante
+      document.getElementById('bar-items-label').textContent = `Ver Pedido (${totalQty})`;
+      document.getElementById('bar-total-price').textContent = formatPrice(totalPrice);
+      document.getElementById('whatsapp-btn-price').textContent = formatPrice(totalPrice);
+      document.getElementById('badge-items-count').textContent = `${totalQty} producto${totalQty === 1 ? '' : 's'}`;
+
+      // Actualizar resumen en checkout
+      const emptyMsg = document.getElementById('cart-empty-msg');
+      const summaryList = document.getElementById('cart-items-summary');
+      const submitBtn = document.getElementById('btn-submit-order');
+
+      if (totalQty === 0) {
+        emptyMsg.classList.remove('hidden');
+        summaryList.classList.add('hidden');
+        summaryList.innerHTML = '';
+        submitBtn.classList.add('opacity-50', 'pointer-events-none');
+      } else {
+        emptyMsg.classList.add('hidden');
+        summaryList.classList.remove('hidden');
+        submitBtn.classList.remove('opacity-50', 'pointer-events-none');
+
+        let html = '';
+        for (const [id, qty] of Object.entries(cart)) {
+          if (qty > 0) {
+            const prod = PRODUCTS[id];
+            html += `
+              <div class="pt-2 first:pt-0 flex items-center justify-between text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded bg-orange-500/20 text-orange-400 font-bold flex items-center justify-center text-[11px]">${qty}x</span>
+                  <span class="text-white font-medium">${prod.name}</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="font-price font-bold text-orange-300">${formatPrice(prod.price * qty)}</span>
+                  <button onclick="changeQty('${id}', -${qty})" class="text-outline hover:text-red-400 transition-colors p-1" title="Eliminar">
+                    <span class="material-symbols-outlined text-[16px]">close</span>
+                  </button>
+                </div>
+              </div>
+            `;
+          }
+        }
+        summaryList.innerHTML = html;
+      }
+    }
+
+    function sendWhatsAppOrder() {
+      // Validar carrito
+      const selected = Object.entries(cart).filter(([_, q]) => q > 0);
+      if (selected.length === 0) {
+        alert("Por favor agrega al menos un corte o plato antes de pedir.");
+        return;
+      }
+
+      // Validar inputs
+      const name = document.getElementById('cust-name').value.trim() || 'Cliente';
+      const address = document.getElementById('cust-address').value.trim();
+
+      if (orderMode === 'delivery' && !address) {
+        alert("Por favor ingresa tu dirección de entrega para el domicilio.");
+        document.getElementById('cust-address').focus();
+        return;
+      }
+
+      // Construcción del mensaje formateado
+      let itemsText = '';
+      let total = 0;
+      selected.forEach(([id, qty]) => {
+        const prod = PRODUCTS[id];
+        const sub = prod.price * qty;
+        total += sub;
+        itemsText += `• ${qty}x ${prod.name} ($${sub.toLocaleString('es-CO')})\n`;
+      });
+
+      const modeText = orderMode === 'delivery' 
+        ? `🛵 *Domicilio a:* ${address}` 
+        : `🏪 *Recogida en sede:* Calle 85 #14-25`;
+
+      const rawMsg = 
+        `🔥 *NUEVO PEDIDO - PUNTO CERDO* 🔥\n\n` +
+        `👤 *Cliente:* ${name}\n` +
+        `${modeText}\n` +
+        `💳 *Método de pago:* ${paymentMethod}\n\n` +
+        `📋 *Detalle del Pedido:*\n` +
+        itemsText + `\n` +
+        `💰 *TOTAL A PAGAR:* ${formatPrice(total)}\n\n` +
+        `¿Me confirman tiempo estimado de entrega por favor? ¡Gracias!`;
+
+      const phone = "573108294021";
+      const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(rawMsg)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    // Inicializar UI al cargar
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCartUI();
     });
-  }
+  </script>
 
-  function updateItem(itemId, delta) {
-    const qtyEl = document.getElementById('qty-' + itemId);
-    if (!qtyEl) return;
-    let qty = parseInt(qtyEl.innerText) + delta;
-    if (qty < 0) qty = 0;
-    qtyEl.innerText = qty;
-    
-    // Quick price feedback
-    recalculate();
-  }
 
-  function addItem(itemId, name, price) {
-    totalOrder += price;
-    formatTotals();
-  }
-
-  function recalculate() {
-    // Dynamic recalculation demo
-    formatTotals();
-  }
-
-  function formatTotals() {
-    const formatted = '$' + totalOrder.toLocaleString('es-CO');
-    const disp = document.getElementById('total-display');
-    const btnDisp = document.getElementById('btn-total-display');
-    if (disp) disp.textContent = formatted;
-    if (btnDisp) btnDisp.textContent = formatted;
-  }
-
-  function submitWhatsAppOrder() {
-    const name = document.getElementById('input-name').value || 'Cliente';
-    const address = document.getElementById('input-address').value || 'Punto de recogida';
-    const text = encodeURIComponent(
-      `¡Hola Punto Cerdo! 🔥 Quiero pedir:\n\n` +
-      `• 1x Chicharrón Crocante (400g)\n` +
-      `• 1x Costillas BBQ al Humo (450g)\n\n` +
-      `Modo: ${orderMode.toUpperCase()}\n` +
-      `Nombre: ${name}\n` +
-      `Dirección/Sede: ${address}\n` +
-      `Pago: ${paymentMethod.toUpperCase()}\n` +
-      `Total: $64.000\n\n¿Me confirman tiempo de ahumado y entrega por favor?`
-    );
-    window.open(`https://wa.me/573001234567?text=${text}`, '_blank');
-  }
-</script></main><div class="fixed bottom-20 w-full z-40 px-margin pointer-events-none"><div class="max-w-md mx-auto pointer-events-auto bg-surface-container-high/95 backdrop-blur-xl p-space-sm rounded-xl shadow-[0_12px_32px_-4px_rgba(0,0,0,0.8),0_0_16px_0_rgba(234,88,12,0.15)] flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm min-w-0 pl-1"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-[20px]">skillet</span></div><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider truncate">Bandeja Ahumada</span><div class="flex items-baseline gap-1"><span class="font-price-display text-price-display text-secondary-container leading-none">$0.00</span><span class="font-label-sm text-label-sm text-on-surface-variant">• 0 cortes</span></div></div></div><a class="h-11 px-4 rounded-lg bg-primary-container hover:bg-secondary-container text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center gap-1.5 shrink-0 transition-transform active:scale-95 shadow-[0_2px_8px_rgba(246,96,24,0.3)]" data-path="cart-checkout" href="#"><span>Pedir WhatsApp</span><span class="material-symbols-outlined text-[18px]">send</span></a></div></div><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,0,0,0.6)]" data-active-classes="text-primary font-bold"><div class="h-20 px-margin flex items-center justify-around"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] gap-1 transition-colors text-primary font-bold" data-path="smokehouse-menu" href="#"><span class="material-symbols-outlined text-[22px]">local_fire_department</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Menú</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] gap-1 text-on-surface-variant transition-colors" data-path="pitmaster-specials" href="#"><span class="material-symbols-outlined text-[22px]">outdoor_grill</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Especiales</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] gap-1 text-on-surface-variant transition-colors" data-path="smoker-live-status" href="#"><span class="material-symbols-outlined text-[22px]">timer</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Ahumador</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] gap-1 text-on-surface-variant transition-colors" data-path="user-orders" href="#"><span class="material-symbols-outlined text-[22px]">receipt_long</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Pedidos</span></a></div></nav></body></html>
+</body></html>
